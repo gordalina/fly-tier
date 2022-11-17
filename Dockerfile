@@ -10,14 +10,17 @@ ENV CGO_ENABLED=0
 
 WORKDIR /go/tier
 
-RUN apk add git alpine-sdk
-RUN set -ex \
-  && git clone https://github.com/tierrun/tier.git -b $TIER_VERSION /go/tier \
-  && go build -ldflags "-linkmode external -extldflags -static" -a ./cmd/tier
+RUN apk add git alpine-sdk ca-certificates
+RUN update-ca-certificates
+
+RUN git clone https://github.com/tierrun/tier.git -b $TIER_VERSION /go/tier
+RUN go build -ldflags "-linkmode external -extldflags -static" -a ./cmd/tier
 
 ############################################################
 FROM busybox:musl as release
 
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /go/tier/tier /usr/bin/tier
 
-ENTRYPOINT ["tier", "--live", "serve", "--addr=:80"]
+EXPOSE 80
+ENTRYPOINT ["tier", "--live", "-v", "serve", "--addr=:80"]

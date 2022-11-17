@@ -1,2 +1,16 @@
 [build.args]
-  TIER_VERSION="v0.4.3"
+  TIER_VERSION = "v0.5.1"
+
+[deploy]
+  strategy = "bluegreen"
+
+[checks]
+  [checks.health]
+    type = "http"
+    method = "get"
+    path = "/v1/whoami"
+    port = 80
+
+    grace_period = "5s"
+    interval = "10s"
+    timeout = "5s"
