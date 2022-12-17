@@ -1,5 +1,5 @@
 [build.args]
-  TIER_VERSION = "v0.6.0"
+  TIER_VERSION = "v0.6.2"
 
 [deploy]
   strategy = "bluegreen"
