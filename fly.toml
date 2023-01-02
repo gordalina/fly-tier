@@ -1,5 +1,9 @@
-[build.args]
-  TIER_VERSION = "v0.6.2"
+
+[build]
+  build-target = "release"
+
+  [build.args]
+    TIER_VERSION = "313127f"
 
 [deploy]
   strategy = "bluegreen"
