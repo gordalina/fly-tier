@@ -8,6 +8,9 @@
 [deploy]
   strategy = "bluegreen"
 
+[env]
+  TIER_DEBUG = "9"
+
 [checks]
   [checks.health]
     type = "http"
