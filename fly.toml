@@ -3,7 +3,7 @@
   build-target = "release"
 
   [build.args]
-    TIER_VERSION = "313127f"
+    TIER_VERSION = "0896352"
 
 [deploy]
   strategy = "bluegreen"
