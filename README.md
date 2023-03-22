@@ -19,3 +19,7 @@ flyctl secrets set STRIPE_API_KEY=sk_live_...
 ## Usage
 
 The app is now available internally at `http://<app>.internal/`.
+
+## Test environment
+
+If you want to use a test key, you'll have to remove the `--live` argument from the ENTRYPOINT command in the Dockerfile.
