@@ -26,6 +26,8 @@ The app is now available internally at `http://<app>.internal/`.
 
 ## Enable public-facing access
 
+Be very mindful about enabling public-facing access as anyone who has access to its URL can issue any command to Tier.
+
 First you have to allocate an IP address.
 
 ```sh
