@@ -7,18 +7,37 @@ This repository provisions tier on fly.io as a private service
 Create an app out of this template.
 
 ```sh
-flyctl launch --no-deploy
+fly launch --no-deploy
 ```
 
-Then we set the stripe api key secret, and deploy it
+Then we set the Stripe API key secret.
 
 ```sh
-flyctl secrets set STRIPE_API_KEY=sk_live_...
+fly secrets set STRIPE_API_KEY=sk_live_...
 ```
 
-## Usage
+Then we deploy it.
+
+```sh
+fly deploy
+```
 
 The app is now available internally at `http://<app>.internal/`.
+
+## Enable public-facing access
+
+First you have to allocate an IP address.
+
+```sh
+fly ips allocate-v4
+fly ips allocate-v6
+```
+
+Then uncomment the `[http_service]` sections in `fly.toml` and redeploy.
+
+```sh
+fly deploy
+```
 
 ## Test environment
 
