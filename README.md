@@ -31,6 +31,7 @@ Be very mindful about enabling public-facing access as anyone who has access to 
 First, you have to allocate an IP address.
 
 ```sh
+# use --shared if you donʻt want to pay $2 for a dedicated IPv4
 fly ips allocate-v4 [--shared]
 fly ips allocate-v6
 
