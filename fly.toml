@@ -1,3 +1,5 @@
+app = "smstoslack-tier"
+primary_region = "iad"
 
 [build]
 image = "tierrun/tier:v0.12.0"
@@ -13,7 +15,6 @@ TIER_DEBUG = "9"
 
 [http_service]
 internal_port = 80
-force_https = true
 auto_stop_machines = true
 auto_start_machines = true
 min_machines_running = 0

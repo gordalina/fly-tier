@@ -38,3 +38,20 @@ fly ips allocate-v6
 # redeploy
 fly deploy
 ```
+
+## Enable scale-to-zero in private networking
+
+You need to use [Flycast](https://fly.io/docs/reference/private-networking/#flycast-private-load-balancing) to achieve this.
+
+```sh
+# allocate a private ipv6
+fly ips allocate-v6 --private
+
+# deploy app
+fly deploy
+
+# access app via ip
+curl http://[ipv6]/v1/whomai
+```
+
+You can now update the minimum machines needed by setting `min_machines_running = 0`
